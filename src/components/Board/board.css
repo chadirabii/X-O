@@ -1,0 +1,10 @@
+.board {
+    background-color: skyblue;
+    margin: 10px;
+    padding: 20px;
+}
+
+.board-row {
+    display: flex;
+    flex-flow: row nowrap;
+}

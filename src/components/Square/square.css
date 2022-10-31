@@ -1,0 +1,17 @@
+.square {
+    background-color: rgb(87, 86, 86);
+    color: white;
+    margin: 1px;
+    padding: 0px;
+    border: 1px solid #999;
+    font-size: 84px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+
+}
+
+.square:focus {
+    outline: none;
+    background-color: #222;
+}
