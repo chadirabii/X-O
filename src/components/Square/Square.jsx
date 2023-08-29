@@ -1,15 +1,17 @@
-import React from "react";
 import "./square.css";
 
+// Square component represents a single square on the board
 const Square = (props) => {
-  // Check if the current square is part of the winning combination
+  // Determine if this square is part of the winning combination
   const isWinnerSquare =
-    props.winner && props.winnerSquares.includes(props.index);
+    props.winner &&
+    props.winnerSquares &&
+    props.winnerSquares.includes(props.index);
 
-  // Define the style for the square
+  // Define square style based on whether it's a winner square
   const squareStyle = {
-    backgroundColor: isWinnerSquare ? "green" : "rgb(87, 86, 86)", // Apply green background if it's a winning square
-    color: "white", // Set text color to white for better visibility
+    backgroundColor: isWinnerSquare ? "green" : "rgb(87, 86, 86)",
+    color: "white",
   };
 
   return (

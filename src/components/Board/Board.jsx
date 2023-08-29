@@ -54,6 +54,12 @@ const Board = () => {
     setXIsNext(!xIsNext);
   };
 
+  // Function to reset the game to its initial state
+  const resetGame = () => {
+    setSquares(initialSquares);
+    setXIsNext(true);
+  };
+
   // Calculate the winner and winning squares
   const { winner, squares: winnerSquares } = calculateWinner(squares);
 
@@ -98,6 +104,7 @@ const Board = () => {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
+      <button onClick={resetGame}>Replay</button>
     </div>
   );
 };
