@@ -8,7 +8,8 @@ This is a classic game of Tic-Tac-Toe that allows two players to take turns mark
 - [SweetAlert2](https://sweetalert2.github.io/) - A customizable modal/alert library for user-friendly alerts.
 
 ## Screenshots
-![image](https://github.com/chadirabii/X-O/assets/110679720/46f12b2b-a512-4b66-bbe7-dbb3aa90fbf4)
+![image](https://github.com/chadirabii/X-O/assets/110679720/db8670da-6628-4d60-8ed9-24b2440e8436)
+
 
 
 
