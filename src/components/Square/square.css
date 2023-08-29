@@ -6,8 +6,8 @@
   border: 1px solid #999;
   font-size: 84px;
   text-align: center;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 .square:focus {

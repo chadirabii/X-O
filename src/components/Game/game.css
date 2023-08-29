@@ -6,9 +6,10 @@ body {
 }
 
 .game {
-  margin: 10;
+  margin: 10px auto;
   padding: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 600px; /* Limit the maximum width for larger screens */
 }
