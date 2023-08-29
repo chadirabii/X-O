@@ -3,7 +3,11 @@ import "./square.css";
 
 const Square = (props) => {
   const squareStyle = {
-    backgroundColor: props.isWinner ? "green" : "rgb(87, 86, 86)",
+    backgroundColor:
+      props.winner && props.value === props.winner
+        ? "green"
+        : "rgb(87, 86, 86)",
+    color: "white", // Set text color to white
   };
 
   return (

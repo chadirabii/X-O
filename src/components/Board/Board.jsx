@@ -16,7 +16,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [a, b, c]; // Return the winning squares as an array of indices
+      return squares[a]; // Return the winning symbol ("X" or "O")
     }
   }
   return null;
@@ -38,40 +38,42 @@ const Board = () => {
     setXIsNext(!xIsNext);
   };
 
+  const winner = calculateWinner(squares);
+
   const renderSquare = (i) => {
     return (
       <Square
         value={squares[i]}
         onClickEvent={() => handleClickEvent(i)}
-        isWinner={winner && winner.includes(i)} // Add this prop
+        winner={winner} // Pass the winning symbol
       />
     );
   };
 
-  const winner = calculateWinner(squares);
   let status;
   if (winner) {
     status = "Winner: " + winner;
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
+
   return (
     <div className="board">
       <div className="status">{status}</div>
       <div className="board-row">
-        {renderSquare(0, winner)}
-        {renderSquare(1, winner)}
-        {renderSquare(2, winner)}
+        {renderSquare(0)}
+        {renderSquare(1)}
+        {renderSquare(2)}
       </div>
       <div className="board-row">
-        {renderSquare(3, winner)}
-        {renderSquare(4, winner)}
-        {renderSquare(5, winner)}
+        {renderSquare(3)}
+        {renderSquare(4)}
+        {renderSquare(5)}
       </div>
       <div className="board-row">
-        {renderSquare(6, winner)}
-        {renderSquare(7, winner)}
-        {renderSquare(8, winner)}
+        {renderSquare(6)}
+        {renderSquare(7)}
+        {renderSquare(8)}
       </div>
     </div>
   );
