@@ -2,11 +2,11 @@ import React from "react";
 import "./square.css";
 
 const Square = (props) => {
+  const isWinnerSquare =
+    props.winner && props.winnerSquares.includes(props.index);
+
   const squareStyle = {
-    backgroundColor:
-      props.winner && props.value === props.winner
-        ? "green"
-        : "rgb(87, 86, 86)",
+    backgroundColor: isWinnerSquare ? "green" : "rgb(87, 86, 86)",
     color: "white", // Set text color to white
   };
 

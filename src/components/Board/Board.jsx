@@ -16,10 +16,10 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a]; // Return the winning symbol ("X" or "O")
+      return { winner: squares[a], squares: lines[i] };
     }
   }
-  return null;
+  return { winner: null, squares: [] }; // Return a default value when there's no winner
 }
 
 const Board = () => {
@@ -30,7 +30,7 @@ const Board = () => {
 
   const handleClickEvent = (i) => {
     const newSquares = [...squares];
-    if (calculateWinner(newSquares) || newSquares[i]) {
+    if (calculateWinner(newSquares).winner || newSquares[i]) {
       return;
     }
     newSquares[i] = xIsNext ? "X" : "O";
@@ -38,14 +38,17 @@ const Board = () => {
     setXIsNext(!xIsNext);
   };
 
-  const winner = calculateWinner(squares);
+  const { winner, squares: winnerSquares } = calculateWinner(squares);
 
   const renderSquare = (i) => {
     return (
       <Square
         value={squares[i]}
         onClickEvent={() => handleClickEvent(i)}
-        winner={winner} // Pass the winning symbol
+        winner={winner}
+        winnerSquares={winnerSquares}
+        index={i}
+        key={i}
       />
     );
   };
