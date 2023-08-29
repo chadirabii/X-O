@@ -1,15 +1,14 @@
 body {
-    background-color: #444;
-    color: white;
-    margin: 20px;
-    font: 32px "Century Gothic", Futura, sans-serif;
+  background-color: #444;
+  color: white;
+  margin: 20px;
+  font: 32px "Century Gothic", Futura, sans-serif;
 }
 
 .game {
-   
-    margin: 10;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 10;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
