@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Square from "../Square/Square";
 import "./board.css";
+import Swal from "sweetalert2";
 
 // Function to check if there's a winner and return the winning symbol and squares
 function calculateWinner(squares) {
@@ -52,6 +53,21 @@ const Board = () => {
 
     // Toggle the next player
     setXIsNext(!xIsNext);
+
+    // Check for a winner after each move
+    const { winner } = calculateWinner(newSquares);
+    if (winner) {
+      // Display SweetAlert when a winner is found
+      Swal.fire({
+        title: "Winner!",
+        text: `${winner} is the winner!`,
+        icon: "success",
+        confirmButtonText: "Replay",
+        allowOutsideClick: false,
+      }).then(() => {
+        resetGame(); // Reset the game when the user clicks "Replay"
+      });
+    }
   };
 
   // Function to reset the game to its initial state
