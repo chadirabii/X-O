@@ -26,7 +26,12 @@ function calculateWinner(squares) {
     }
   }
 
-  // If no winner, return null
+  // If no winner and all squares are filled, return a draw
+  if (squares.every((square) => square !== null)) {
+    return { winner: "Draw", squares: [] };
+  }
+
+  // If no winner or draw, return null
   return { winner: null, squares: [] };
 }
 
@@ -57,15 +62,14 @@ const Board = () => {
     // Check for a winner after each move
     const { winner } = calculateWinner(newSquares);
     if (winner) {
-      // Display SweetAlert when a winner is found
       Swal.fire({
-        title: "Winner!",
-        text: `${winner} is the winner!`,
-        icon: "success",
-        confirmButtonText: "Replay",
+        title: winner === "Draw" ? "Draw!" : "Winner!",
+        text: winner === "Draw" ? "It's a draw!" : `${winner} is the winner!`,
+        icon: winner === "Draw" ? "warning" : "success",
+        confirmButtonText: "Close!",
         allowOutsideClick: false,
       }).then(() => {
-        resetGame(); // Reset the game when the user clicks "Replay"
+        // resetGame(); // Reset the game when the user clicks "Replay"
       });
     }
   };
@@ -96,9 +100,7 @@ const Board = () => {
   // Determine the game status message
   let status;
   if (winner) {
-    status = "Winner: " + winner;
-  } else if (squares.every((square) => square !== null)) {
-    status = "Draw!";
+    status = winner === "Draw" ? "Draw!" : "Winner: " + winner;
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
