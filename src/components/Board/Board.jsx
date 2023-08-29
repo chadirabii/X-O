@@ -104,7 +104,16 @@ const Board = () => {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button onClick={resetGame}>Replay</button>
+      <div className="buttons">
+        <button className="btn" onClick={resetGame}>
+          <span></span>
+          <p
+            data-start="good luck!"
+            data-text="start!"
+            data-title="new game"
+          ></p>
+        </button>
+      </div>
     </div>
   );
 };
